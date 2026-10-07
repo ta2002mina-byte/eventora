@@ -23,12 +23,15 @@ function formatDayLabel(value: string) {
   return date.toLocaleDateString(undefined, { month: "long", day: "numeric", year: "numeric" });
 }
 
+
 export function MessageThread({
   conversation,
   currentUserId,
+  backHref,
 }: {
   conversation: ConversationWithMessages;
   currentUserId: string;
+  backHref?: string;
 }) {
   const { toast } = useToast();
   const [messages, setMessages] = React.useState<MessageRecord[]>(conversation.messages);
